@@ -1,4 +1,22 @@
 # Windows 10 Geolocation Demo
+V této ukázce vytvoříme aplikaci pro Windows 10, která bude pomocí nativního API zjišťovat polohu uživatele. Zároveň využijeme dva nové prvky pro práci s uživatelským rozhraním: ```SplitView``` a ```AdaptiveTrigger```.
+
+## Příprava
+Tento postup pracuje s Visual Studiem 2015 RC, které je ke stažení zde: https://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs.aspx (na edici nezáleží, pracovat se dá s Community i Enterprise). Součástí instalace jsou i Windows 10 SDK a emulátory.
+
+Abyste mohli nasadit vlastní aplikaci na počítač s Windows 10, musíte v něm sideloading povolit. 
+V novějších buildech se to bude dělat položkou **For Developers** v sekci **Update & Security** nastavení počítače, build **10074** tuto volbu již obsahuje, ale je zatím nefunkční.
+Alternativním způsobem je upravit registry nebo Group Policy počítače.
+
+1. Stiskněte Windows + R.
+1. Napište `gpedit.msc` a potvrďte Enterem.
+1. Přejděte do sekce Computer Configuration -> Administrative Templates -> Windows Components -> App Package Deployment.
+1. Nastavte *Allows development of Windows Store apps and installing...* na **Enabled**.
+1. Nastavte *Allow trusted apps to install* na **Enabled**.  
+
+![](Images/enable-dev-mode.png)
+
+A teď už samotný postup.
 
 ## Zjišťujeme lokaci
 Vytvoříme ve Visual Studiu 2015 nový projekt a do **MainPage.xaml** vložíme dvě tlačítka a tři TextBlocky:
